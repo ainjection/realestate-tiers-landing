@@ -7,25 +7,17 @@ Built for GitHub Pages — zero build step, just static files.
 
 After enabling Pages: `https://<your-github-username>.github.io/realestate-tiers-landing/`
 
-## Setup (60 seconds — one-time)
+## Setup (one-time, 30 seconds)
 
-### 1. Get your form access key
+The booking form uses [Formsubmit.co](https://formsubmit.co) — no signup, no API key.
+The form action is hardcoded to `https://formsubmit.co/ajax/pprholdings123@gmail.com`.
 
-The booking form uses [Web3Forms](https://web3forms.com) (free, unlimited submissions, no signup beyond email verification).
+**First-submission verification:** When the FIRST booking is submitted, Formsubmit emails
+that inbox a one-click verification link. Click the link once, and from then on every
+booking lands directly in the inbox.
 
-1. Go to **https://web3forms.com/create-access-key**
-2. Enter the email address you want bookings sent to (your Gmail works)
-3. Click **"Create Access Key"** — you'll get an access key emailed in seconds
-4. Open `index.html`, find the line:
-   ```html
-   <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_ACCESS_KEY" />
-   ```
-5. Replace `REPLACE_WITH_WEB3FORMS_ACCESS_KEY` with the key you got
-6. Commit and push — done. Bookings now land in your inbox.
-
-### 2. Update the contact email in the footer
-
-Find `rob@yourdomain.co.uk` in the JS error fallback near the bottom of `index.html` and swap it for your real email.
+To switch the destination email, edit the form action and the JS fallback messages in
+`index.html` (search for `pprholdings123@gmail.com`).
 
 ## Adding new tiers (Stages 3, 4, 5)
 
