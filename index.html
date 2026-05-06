@@ -563,6 +563,133 @@
       margin: 0; font-size: 13px;
       color: var(--fg-2); line-height: 1.5;
     }
+
+    /* === HERO VIDEO (Stage 3 — single 16:9 asset, not a 3-up grid) === */
+    .hero-video-wrap {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-video-wrap .video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #0a0a0a;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .hero-video-wrap video { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .hero-video-wrap .play-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0);
+      transition: background 0.3s;
+    }
+    .hero-video-wrap .play-overlay:hover { background: rgba(0,0,0,0.18); }
+    .hero-video-wrap .play-overlay::after {
+      content: "";
+      width: 88px; height: 88px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+      mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M8 5v14l11-7z"/></svg>');
+      mask-size: 38px;
+      mask-repeat: no-repeat;
+      mask-position: 56% center;
+      -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M8 5v14l11-7z"/></svg>');
+      -webkit-mask-size: 38px;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: 56% center;
+      opacity: 1;
+      transition: opacity 0.3s, transform 0.3s;
+      transform: scale(1);
+    }
+    .hero-video-wrap.playing .play-overlay::after { opacity: 0; }
+    .hero-video-wrap .meta-row {
+      padding: 22px 32px;
+      border-top: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .hero-video-wrap .meta-row .meta-left { display: flex; flex-direction: column; gap: 4px; }
+    .hero-video-wrap .meta-row .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--sand-2);
+    }
+    .hero-video-wrap .meta-row .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 600;
+      color: var(--nv);
+    }
+    .hero-video-wrap .meta-row .duration {
+      font-size: 13px; color: var(--fg-3);
+      margin-top: 2px;
+    }
+    .hero-video-wrap .extras { display: flex; gap: 10px; flex-wrap: wrap; }
+    .hero-video-wrap .extras .pill {
+      padding: 7px 14px;
+      background: var(--bg-2);
+      border-radius: var(--radius-pill);
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 600;
+      color: var(--nv);
+    }
+    .hero-video-wrap .extras .pill .accent { color: var(--sand-2); margin-right: 4px; }
+
+    /* === Chapters list (Stage 3) === */
+    .chapters-block {
+      max-width: 720px; margin: 0 auto 40px;
+      background: white;
+      border-radius: var(--radius);
+      padding: 28px 36px;
+      box-shadow: var(--shadow-sm);
+    }
+    .chapters-block h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; font-weight: 600;
+      color: var(--nv); margin-bottom: 16px;
+    }
+    .chapters-block ol {
+      list-style: none; padding: 0; margin: 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px;
+    }
+    @media (max-width: 540px) { .chapters-block ol { grid-template-columns: 1fr; } }
+    .chapters-block ol li {
+      display: flex; align-items: baseline; gap: 12px;
+      font-size: 14px; color: var(--fg-2);
+    }
+    .chapters-block ol li .ts {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700; color: var(--sand-2);
+      min-width: 50px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* === Thumbnail card === */
+    .thumb-card {
+      max-width: 760px; margin: 0 auto 60px;
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+    }
+    .thumb-card .thumb-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-size: cover; background-position: center;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .thumb-card .thumb-caption {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 13px; color: var(--fg-3);
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -608,11 +735,11 @@
       <div class="tier-price">£75</div>
       <div class="tier-tagline">Stage 1 + 3 morphs + HD</div>
     </a>
-    <a href="#stage-3" class="tier-card-mini ghost">
+    <a href="#stage-3" class="tier-card-mini">
       <div class="tier-num">Stage 3</div>
-      <div class="tier-name">Coming soon</div>
-      <div class="tier-price">£<small>tbd</small></div>
-      <div class="tier-tagline">In design</div>
+      <div class="tier-name">YouTube Hero</div>
+      <div class="tier-price">£175</div>
+      <div class="tier-tagline">2-min landscape · captions + chapters</div>
     </a>
     <a href="#stage-4" class="tier-card-mini ghost">
       <div class="tier-num">Stage 4</div>
@@ -787,24 +914,89 @@
   </div>
 </section>
 
-<!-- ==================== STAGES 3-5 (COMING SOON) ==================== -->
+<div class="divider"><hr/></div>
+
+<!-- ==================== STAGE 3 ==================== -->
+<section class="stage" id="stage-3">
+  <div class="stage-header">
+    <span class="stage-2-badge">YouTube · Website Hero</span>
+    <div class="stage-num">Stage 3 · YouTube Hero</div>
+    <h2 class="stage-name">One landscape video. <span class="italic">Built for YouTube.</span></h2>
+    <div class="stage-price">£175 <small>per property</small></div>
+    <p class="stage-tagline">
+      Different beast from Stages 1 and 2. This is the long-form 16:9 hero asset
+      agents embed on their own website, upload to YouTube for SEO, and use in
+      email campaigns. Two minutes, captioned, chaptered, music-scored.
+    </p>
+  </div>
+
+  <div class="hero-video-wrap" id="stage3-video-wrap">
+    <div class="video-frame">
+      <video src="videos/stage3-hero.mp4" muted playsinline preload="metadata"></video>
+      <div class="play-overlay" data-play></div>
+    </div>
+    <div class="meta-row">
+      <div class="meta-left">
+        <div class="label">Stage 3 · YouTube Hero</div>
+        <div class="title">1 Wilton Road — full property tour</div>
+        <div class="duration">2:00 · 1920 × 1080 HD · captions burned + SRT</div>
+      </div>
+      <div class="extras">
+        <div class="pill"><span class="accent">📺</span>YouTube ready</div>
+        <div class="pill"><span class="accent">📝</span>SRT included</div>
+        <div class="pill"><span class="accent">🎵</span>Music + VO</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapters-block">
+    <h4>Chapter list (auto-added to YouTube description)</h4>
+    <ol>
+      <li><span class="ts">00:00</span> Welcome to Hornsea</li>
+      <li><span class="ts">00:15</span> The Building</li>
+      <li><span class="ts">00:25</span> Open-Plan Living</li>
+      <li><span class="ts">00:49</span> Both Bedrooms</li>
+      <li><span class="ts">01:06</span> Bathroom & Renovation</li>
+      <li><span class="ts">01:24</span> Price & Investment</li>
+      <li><span class="ts">01:45</span> Book a Viewing</li>
+    </ol>
+  </div>
+
+  <div class="thumb-card">
+    <div class="thumb-img" style="background-image: url('videos/stage3-thumb.png');"></div>
+    <div class="thumb-caption">Custom YouTube thumbnail — included with every Stage 3 delivery</div>
+  </div>
+
+  <div class="features">
+    <h3>What's included</h3>
+    <ul>
+      <li>One 2-minute landscape (16:9 / 1080p) HD video</li>
+      <li>Burned-in captions (autoplay sound-off ready)</li>
+      <li>SRT subtitle file (YouTube reads it for SEO)</li>
+      <li>Chapter list for YouTube description</li>
+      <li>Royalty-free music bed (ducked under VO)</li>
+      <li>Stat ribbons per chapter (sqm, EPC, lease, price)</li>
+      <li>UK presenter-quality narration (~280 words)</li>
+      <li>Custom 1280×720 YouTube thumbnail PNG</li>
+    </ul>
+    <div class="cta-row">
+      <a href="#book" class="btn-primary" onclick="document.querySelector('select[name=tier]').value='Stage 3 (£175)'">Order Stage 3 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== STAGES 4-5 (COMING SOON) ==================== -->
 <section class="coming-soon">
   <div class="stage-header" style="text-align:center; margin-bottom:60px;">
     <div class="stage-num">More tiers landing soon</div>
-    <h2 class="stage-name" style="font-size: clamp(30px, 4vw, 42px);">Stages 3, 4 & 5 — <span class="italic">in design</span></h2>
+    <h2 class="stage-name" style="font-size: clamp(30px, 4vw, 42px);">Stages 4 & 5 — <span class="italic">in design</span></h2>
     <p class="stage-tagline">
       We're rolling out new tiers as we lock each one in. Get on the early-access list
       and be first to see them when they're ready.
     </p>
   </div>
 
-  <div class="coming-soon-grid">
-    <div class="coming-card" id="stage-3">
-      <span class="ribbon">In design</span>
-      <h3>Stage 3</h3>
-      <div class="price-line">£TBD</div>
-      <p class="preview">Will likely add multi-aspect (portrait + landscape + square exports) and music bed under VO. Locked in once the framing is right.</p>
-    </div>
+  <div class="coming-soon-grid" style="grid-template-columns: 1fr 1fr; max-width: 800px; margin: 0 auto;">
     <div class="coming-card" id="stage-4">
       <span class="ribbon">In design</span>
       <h3>Stage 4</h3>
@@ -859,8 +1051,9 @@
         <div class="field">
           <label for="tier">Which tier?</label>
           <select id="tier" name="tier" required>
-            <option value="Stage 1 (£25)">Stage 1 — £25 (Essentials)</option>
-            <option value="Stage 2 (£75)">Stage 2 — £75 (Showpiece)</option>
+            <option value="Stage 1 (£25)">Stage 1 — £25 (Essentials, 3 vertical reels)</option>
+            <option value="Stage 2 (£75)">Stage 2 — £75 (Showpiece, 3 reels + morphs)</option>
+            <option value="Stage 3 (£175)">Stage 3 — £175 (YouTube Hero, 1 × 2-min landscape)</option>
             <option value="Not sure yet">Not sure — please advise</option>
           </select>
         </div>
@@ -897,22 +1090,30 @@
 <script>
   // === Click play overlays — toggle play/pause + unmute on first interaction ===
   document.querySelectorAll('[data-play]').forEach(overlay => {
+    // Find sibling video (works for both .reel-card and .hero-video-wrap structures)
     const video = overlay.parentElement.querySelector('video');
+    const wrap = overlay.closest('.hero-video-wrap');
     overlay.addEventListener('click', () => {
       if (video.paused) {
         video.muted = false;
         video.currentTime = 0;
         video.play();
         overlay.style.opacity = 0;
+        if (wrap) wrap.classList.add('playing');
       } else {
         video.pause();
         overlay.style.opacity = 1;
+        if (wrap) wrap.classList.remove('playing');
       }
     });
-    video.addEventListener('ended', () => { overlay.style.opacity = 1; });
+    video.addEventListener('ended', () => {
+      overlay.style.opacity = 1;
+      if (wrap) wrap.classList.remove('playing');
+    });
   });
 
-  // === Autoplay-on-scroll (muted) — preview when video enters viewport ===
+  // === Autoplay-on-scroll (muted) — preview when 9:16 reel enters viewport ===
+  // Stage 3 hero video does NOT autoplay (it's longer + has audio focus) — click to play only
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       const video = entry.target;
