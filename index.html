@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UK Listing Video Service — From £25 per Property</title>
+  <meta name="description" content="AI-powered UK listing-video reels that sell properties. From £25 for 3 reels to £495 fully-bespoke. Send us a property URL, get reels back in 24 hours." />
+
+  <meta property="og:title" content="UK Listing Video Service — Reels that sell properties" />
+  <meta property="og:description" content="From £25 for 3 reels. Send a Rightmove URL, get vertical reels back in 24 hours. Built for UK estate agents." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #f8f5f0;
+      --bg-2: #efeadd;
+      --bg-3: #e8e1d0;
+      --nv: #1a2b4a;
+      --nv-2: #2a3d5e;
+      --sand: #c9a86a;
+      --sand-2: #b8965a;
+      --sage: #9eab91;
+      --fg: #2a2a2a;
+      --fg-2: #525252;
+      --fg-3: #8a8a8a;
+      --line: rgba(26,43,74,0.10);
+      --line-2: rgba(26,43,74,0.18);
+      --shadow-sm: 0 2px 8px rgba(26,43,74,0.06);
+      --shadow-md: 0 8px 24px rgba(26,43,74,0.08);
+      --shadow-lg: 0 24px 60px rgba(26,43,74,0.12);
+      --radius: 18px;
+      --radius-lg: 28px;
+      --radius-pill: 999px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      font-weight: 400;
+      color: var(--fg);
+      background: var(--bg);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      color: var(--nv);
+      margin: 0;
+    }
+
+    /* === NAV === */
+    nav.top {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(248,245,240,0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--line);
+    }
+    nav.top .row {
+      max-width: 1200px; margin: 0 auto;
+      padding: 18px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700; font-size: 22px;
+      color: var(--nv); text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .brand .accent { color: var(--sand); }
+    nav.top ul { list-style: none; display: flex; gap: 32px; margin: 0; padding: 0; }
+    nav.top a {
+      color: var(--fg-2); text-decoration: none;
+      font-size: 14px; font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav.top a:hover { color: var(--nv); }
+    nav.top .cta {
+      background: var(--nv); color: white;
+      padding: 9px 20px; border-radius: var(--radius-pill);
+      font-size: 14px; font-weight: 600;
+    }
+    nav.top .cta:hover { background: var(--nv-2); color: white; }
+
+    /* === HERO === */
+    .hero {
+      padding: 120px 28px 100px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(201,168,106,0.08), transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(158,171,145,0.10), transparent 50%),
+        var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero .eyebrow {
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--sand-2);
+      padding: 8px 18px;
+      border: 1px solid rgba(201,168,106,0.35);
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,0.5);
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 76px);
+      max-width: 920px; margin: 0 auto 24px;
+    }
+    .hero h1 .italic { font-style: italic; color: var(--sand); font-weight: 400; }
+    .hero .lede {
+      font-size: clamp(17px, 1.6vw, 21px);
+      color: var(--fg-2);
+      max-width: 680px; margin: 0 auto 40px;
+      line-height: 1.55;
+    }
+    .hero .actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary, .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px; font-weight: 600;
+      border-radius: var(--radius-pill);
+      text-decoration: none; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--nv); color: white;
+      box-shadow: var(--shadow-md);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .btn-secondary {
+      background: white; color: var(--nv);
+      border: 1px solid var(--line-2);
+    }
+    .btn-secondary:hover { background: var(--bg-2); }
+
+    /* === TIER STRIP === */
+    .tier-strip {
+      max-width: 1200px; margin: -40px auto 0;
+      padding: 0 28px;
+      position: relative; z-index: 5;
+    }
+    .tier-strip-inner {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .tier-card-mini {
+      text-align: center; padding: 20px 12px;
+      border-radius: var(--radius);
+      transition: background 0.2s;
+      cursor: pointer; text-decoration: none; color: inherit;
+    }
+    .tier-card-mini:hover { background: var(--bg-2); }
+    .tier-card-mini.ghost { opacity: 0.55; }
+    .tier-card-mini.ghost:hover { opacity: 0.8; }
+    .tier-card-mini .tier-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--fg-3); margin-bottom: 6px;
+    }
+    .tier-card-mini .tier-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px; font-weight: 600;
+      color: var(--nv); margin-bottom: 8px;
+    }
+    .tier-card-mini .tier-price {
+      font-family: 'Inter', sans-serif;
+      font-size: 28px; font-weight: 700;
+      color: var(--sand); letter-spacing: -0.02em;
+    }
+    .tier-card-mini .tier-price small { font-size: 13px; font-weight: 500; color: var(--fg-3); margin-left: 2px; }
+    .tier-card-mini .tier-tagline {
+      font-size: 12px; color: var(--fg-3);
+      margin-top: 6px; line-height: 1.4;
+    }
+    @media (max-width: 900px) {
+      .tier-strip-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .tier-strip-inner { grid-template-columns: 1fr; padding: 20px; }
+    }
+
+    /* === STAGE SECTIONS === */
+    .stage {
+      max-width: 1200px; margin: 0 auto;
+      padding: 120px 28px 100px;
+    }
+    .stage-header { text-align: center; margin-bottom: 60px; }
+    .stage-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--sand-2); margin-bottom: 14px;
+    }
+    .stage-name {
+      font-size: clamp(38px, 5vw, 58px);
+      margin-bottom: 16px;
+    }
+    .stage-name .italic { font-style: italic; color: var(--sand); font-weight: 400; }
+    .stage-price {
+      display: inline-block;
+      padding: 8px 20px;
+      background: var(--nv); color: white;
+      border-radius: var(--radius-pill);
+      font-family: 'Inter', sans-serif;
+      font-size: 18px; font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-top: 12px;
+    }
+    .stage-price small { font-weight: 500; opacity: 0.7; margin-left: 4px; font-size: 14px; }
+    .stage-tagline {
+      max-width: 640px; margin: 24px auto 0;
+      color: var(--fg-2); font-size: 17px;
+      line-height: 1.55;
+    }
+
+    /* === REEL TRIO === */
+    .reel-trio {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    @media (max-width: 900px) {
+      .reel-trio { grid-template-columns: 1fr; max-width: 380px; margin-left: auto; margin-right: auto; }
+    }
+    .reel-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .reel-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .reel-card .video-wrap {
+      position: relative;
+      aspect-ratio: 9 / 16;
+      background: #0a0a0a;
+      overflow: hidden;
+    }
+    .reel-card video {
+      width: 100%; height: 100%;
+      display: block; object-fit: cover;
+    }
+    .reel-card .play-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0);
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .reel-card .play-overlay:hover { background: rgba(0,0,0,0.15); }
+    .reel-card .play-overlay::after {
+      content: "";
+      width: 64px; height: 64px;
+      background: rgba(255,255,255,0.92);
+      border-radius: 50%;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M8 5v14l11-7z"/></svg>');
+      mask-size: 28px;
+      mask-repeat: no-repeat;
+      mask-position: 56% center;
+      -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M8 5v14l11-7z"/></svg>');
+      -webkit-mask-size: 28px;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: 56% center;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      transform: scale(0.85);
+    }
+    .reel-card .play-overlay:hover::after { opacity: 1; transform: scale(1); }
+    .reel-card .reel-meta {
+      padding: 18px 20px;
+      border-top: 1px solid var(--line);
+    }
+    .reel-card .reel-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--sand-2);
+      margin-bottom: 4px;
+    }
+    .reel-card .reel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px; font-weight: 600;
+      color: var(--nv);
+    }
+    .reel-card .reel-duration {
+      font-size: 12px; color: var(--fg-3);
+      margin-top: 4px;
+    }
+
+    /* === FEATURE LIST === */
+    .features {
+      max-width: 720px; margin: 0 auto;
+      background: var(--bg-2);
+      border-radius: var(--radius-lg);
+      padding: 40px 48px;
+    }
+    .features h3 {
+      font-size: 22px; margin-bottom: 24px;
+      text-align: center;
+    }
+    .features ul {
+      list-style: none; padding: 0; margin: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px 32px;
+    }
+    @media (max-width: 600px) {
+      .features ul { grid-template-columns: 1fr; }
+      .features { padding: 32px 24px; }
+    }
+    .features li {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 15px; color: var(--fg-2);
+      line-height: 1.45;
+    }
+    .features li::before {
+      content: "✓";
+      color: var(--sage); font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .features .cta-row {
+      margin-top: 32px; text-align: center;
+    }
+
+    /* === STAGE BACKGROUNDS === */
+    .stage.alt { background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%); max-width: none; }
+    .stage.alt > * { max-width: 1200px; margin-left: auto; margin-right: auto; }
+
+    /* === COMING SOON === */
+    .coming-soon {
+      max-width: 1200px; margin: 0 auto;
+      padding: 60px 28px 100px;
+    }
+    .coming-soon-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) { .coming-soon-grid { grid-template-columns: 1fr; } }
+    .coming-card {
+      background: white;
+      border: 1px dashed var(--line-2);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .coming-card::before {
+      content: "";
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--sand), var(--sage));
+      opacity: 0.5;
+    }
+    .coming-card .ribbon {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(201,168,106,0.15);
+      color: var(--sand-2);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      border-radius: var(--radius-pill);
+      margin-bottom: 18px;
+    }
+    .coming-card h3 {
+      font-size: 26px; margin-bottom: 12px;
+    }
+    .coming-card .price-line {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px; font-weight: 600;
+      color: var(--nv); margin-bottom: 18px;
+    }
+    .coming-card .preview {
+      font-size: 14px; color: var(--fg-2);
+      line-height: 1.55;
+    }
+
+    /* === FORM SECTION === */
+    .booking {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(201,168,106,0.10), transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(26,43,74,0.06), transparent 50%),
+        var(--bg-2);
+      padding: 100px 28px 120px;
+    }
+    .booking-inner {
+      max-width: 760px; margin: 0 auto;
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 56px 56px;
+      box-shadow: var(--shadow-lg);
+    }
+    @media (max-width: 600px) { .booking-inner { padding: 40px 28px; } }
+    .booking-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--sand-2);
+      margin-bottom: 14px; text-align: center;
+    }
+    .booking h2 {
+      font-size: clamp(32px, 4.5vw, 46px);
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .booking .sub {
+      text-align: center; color: var(--fg-2);
+      max-width: 540px; margin: 0 auto 36px;
+      font-size: 16px; line-height: 1.55;
+    }
+    form { display: grid; gap: 18px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label {
+      font-size: 13px; font-weight: 600;
+      color: var(--fg-2);
+      letter-spacing: 0.02em;
+    }
+    .field input, .field select, .field textarea {
+      padding: 14px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      border: 1px solid var(--line-2);
+      border-radius: 12px;
+      background: white;
+      color: var(--fg);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: var(--sand);
+      box-shadow: 0 0 0 4px rgba(201,168,106,0.15);
+    }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 540px) { .field-row { grid-template-columns: 1fr; } }
+    form button[type="submit"] {
+      margin-top: 12px;
+      padding: 18px 32px;
+      background: var(--nv); color: white;
+      border: none;
+      border-radius: var(--radius-pill);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px; font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      width: 100%;
+    }
+    form button[type="submit"]:hover { background: var(--nv-2); transform: translateY(-1px); }
+    .form-note {
+      text-align: center;
+      font-size: 13px; color: var(--fg-3);
+      margin-top: 20px;
+    }
+    .thanks {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--bg-2);
+      border-radius: var(--radius);
+      color: var(--nv);
+    }
+    .thanks.shown { display: block; }
+    .thanks h3 { margin-bottom: 12px; font-size: 26px; }
+    .thanks p { color: var(--fg-2); margin: 0; }
+
+    /* === FOOTER === */
+    footer {
+      background: var(--nv);
+      color: rgba(255,255,255,0.7);
+      padding: 60px 28px 40px;
+      text-align: center;
+    }
+    footer .brand { color: white; font-size: 26px; }
+    footer .brand .accent { color: var(--sand); }
+    footer p { margin: 18px 0 0; font-size: 14px; line-height: 1.55; }
+    footer a { color: var(--sand); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer .small {
+      margin-top: 32px; padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      font-size: 12px; color: rgba(255,255,255,0.45);
+    }
+
+    /* === SECTION DIVIDER === */
+    .divider {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+    .divider hr {
+      border: none;
+      height: 1px;
+      background: var(--line);
+    }
+
+    /* === STAGE 2 ACCENT (showpiece highlight) === */
+    .stage-2-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--sand) 0%, var(--sand-2) 100%);
+      color: white;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 12px rgba(201,168,106,0.35);
+    }
+    .morph-callouts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 0 auto 40px;
+      max-width: 900px;
+    }
+    @media (max-width: 700px) { .morph-callouts { grid-template-columns: 1fr; } }
+    .morph-callout {
+      background: white;
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      text-align: left;
+      border-left: 3px solid var(--sand);
+      box-shadow: var(--shadow-sm);
+    }
+    .morph-callout .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--sand-2);
+      margin-bottom: 6px;
+    }
+    .morph-callout strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-weight: 600;
+      color: var(--nv); display: block; margin-bottom: 4px;
+    }
+    .morph-callout p {
+      margin: 0; font-size: 13px;
+      color: var(--fg-2); line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="row">
+    <a href="#top" class="brand">Reels<span class="accent">.</span> for Estates</a>
+    <ul>
+      <li><a href="#tiers">Tiers</a></li>
+      <li><a href="#stage-1">Stage 1</a></li>
+      <li><a href="#stage-2">Stage 2</a></li>
+      <li><a href="#book" class="cta">Book a property</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="top">
+  <span class="eyebrow">UK Listing Video Service</span>
+  <h1>Reels that <span class="italic">sell properties</span><br/>— ready in 24 hours.</h1>
+  <p class="lede">
+    Send us a Rightmove or agent URL. We turn it into vertical reels for Instagram, TikTok, and Facebook
+    — narrated, animated, branded, and back in your inbox within a day. From <strong>£25 per property.</strong>
+  </p>
+  <div class="actions">
+    <a class="btn-primary" href="#book">Book a property →</a>
+    <a class="btn-secondary" href="#tiers">See the tiers</a>
+  </div>
+</section>
+
+<!-- ==================== TIER STRIP ==================== -->
+<section class="tier-strip" id="tiers">
+  <div class="tier-strip-inner">
+    <a href="#stage-1" class="tier-card-mini">
+      <div class="tier-num">Stage 1</div>
+      <div class="tier-name">Essentials</div>
+      <div class="tier-price">£25</div>
+      <div class="tier-tagline">3 reels · scraped + narrated</div>
+    </a>
+    <a href="#stage-2" class="tier-card-mini">
+      <div class="tier-num">Stage 2</div>
+      <div class="tier-name">Showpiece</div>
+      <div class="tier-price">£75</div>
+      <div class="tier-tagline">Stage 1 + 3 morphs + HD</div>
+    </a>
+    <a href="#stage-3" class="tier-card-mini ghost">
+      <div class="tier-num">Stage 3</div>
+      <div class="tier-name">Coming soon</div>
+      <div class="tier-price">£<small>tbd</small></div>
+      <div class="tier-tagline">In design</div>
+    </a>
+    <a href="#stage-4" class="tier-card-mini ghost">
+      <div class="tier-num">Stage 4</div>
+      <div class="tier-name">Coming soon</div>
+      <div class="tier-price">£<small>tbd</small></div>
+      <div class="tier-tagline">In design</div>
+    </a>
+    <a href="#stage-5" class="tier-card-mini ghost">
+      <div class="tier-num">Stage 5</div>
+      <div class="tier-name">Bespoke</div>
+      <div class="tier-price">£<small>tbd</small></div>
+      <div class="tier-tagline">Concierge tier</div>
+    </a>
+  </div>
+</section>
+
+<!-- ==================== STAGE 1 ==================== -->
+<section class="stage" id="stage-1">
+  <div class="stage-header">
+    <div class="stage-num">Stage 1 · Essentials</div>
+    <h2 class="stage-name">Three reels. <span class="italic">One link.</span> Twenty-four hours.</h2>
+    <div class="stage-price">£25 <small>per property</small></div>
+    <p class="stage-tagline">
+      Drop a property URL — we scrape every photo, key feature, room, and the price.
+      You get back three vertical reels, each narrated by a UK voice, ready to post.
+    </p>
+  </div>
+
+  <div class="reel-trio">
+    <div class="reel-card">
+      <div class="video-wrap">
+        <video src="videos/stage1-hook.mp4" muted playsinline preload="metadata" loop></video>
+        <div class="play-overlay" data-play></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-label">Reel 1 of 3</div>
+        <div class="reel-title">The Hook</div>
+        <div class="reel-duration">28 seconds · kinetic typography opener</div>
+      </div>
+    </div>
+
+    <div class="reel-card">
+      <div class="video-wrap">
+        <video src="videos/stage1-tour.mp4" muted playsinline preload="metadata" loop></video>
+        <div class="play-overlay" data-play></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-label">Reel 2 of 3</div>
+        <div class="reel-title">The Tour</div>
+        <div class="reel-duration">43 seconds · room-by-room walkthrough</div>
+      </div>
+    </div>
+
+    <div class="reel-card">
+      <div class="video-wrap">
+        <video src="videos/stage1-pick.mp4" muted playsinline preload="metadata" loop></video>
+        <div class="play-overlay" data-play></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-label">Reel 3 of 3</div>
+        <div class="reel-title">The Pick</div>
+        <div class="reel-duration">40 seconds · agent's-pick highlights</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features">
+    <h3>What's included</h3>
+    <ul>
+      <li>Scrape from Rightmove / Zoopla / agent site</li>
+      <li>Three reels (Hook + Tour + Pick)</li>
+      <li>UK voice narration (3 different voices)</li>
+      <li>9:16 vertical for IG / TikTok / Reels</li>
+      <li>Photos auto-cleaned and validated</li>
+      <li>Ready in 24 hours</li>
+      <li>Branded with your agency colours</li>
+      <li>MP4 files delivered direct</li>
+    </ul>
+    <div class="cta-row">
+      <a href="#book" class="btn-primary" onclick="document.querySelector('select[name=tier]').value='Stage 1 (£25)'">Order Stage 1 →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><hr/></div>
+
+<!-- ==================== STAGE 2 ==================== -->
+<section class="stage alt" id="stage-2">
+  <div class="stage-header">
+    <span class="stage-2-badge">Showpiece tier</span>
+    <div class="stage-num">Stage 2 · Showpiece</div>
+    <h2 class="stage-name">Same three reels — <span class="italic">with morphs.</span></h2>
+    <div class="stage-price">£75 <small>per property</small></div>
+    <p class="stage-tagline">
+      Stage 1's three reels, supercharged. The Tour now contains three showpiece morphs that
+      turn empty rooms into staged interiors and a flat floorplan into a 3D walk-around.
+      All three reels rendered in HD with liquid-glass visual polish.
+    </p>
+  </div>
+
+  <div class="morph-callouts">
+    <div class="morph-callout">
+      <div class="label">Morph 1</div>
+      <strong>2D → 3D Floorplan</strong>
+      <p>Flat plan rises into a 3D isometric walk-around. The clearest layout view buyers will ever see.</p>
+    </div>
+    <div class="morph-callout">
+      <div class="label">Morph 2</div>
+      <strong>Empty → Staged Master</strong>
+      <p>Bedroom furniture rises out of the floor — bed, lamp, side table — turning empty space into "Imagine it furnished."</p>
+    </div>
+    <div class="morph-callout">
+      <div class="label">Morph 3</div>
+      <strong>Empty → Staged Bedroom 2</strong>
+      <p>Same treatment for the second bedroom. Buyers see the potential, not the bare carpet.</p>
+    </div>
+  </div>
+
+  <div class="reel-trio">
+    <div class="reel-card">
+      <div class="video-wrap">
+        <video src="videos/stage2-hook.mp4" muted playsinline preload="metadata" loop></video>
+        <div class="play-overlay" data-play></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-label">Reel 1 of 3 · HD</div>
+        <div class="reel-title">The Hook</div>
+        <div class="reel-duration">28 seconds · liquid-glass + curved underlines</div>
+      </div>
+    </div>
+
+    <div class="reel-card">
+      <div class="video-wrap">
+        <video src="videos/stage2-tour.mp4" muted playsinline preload="metadata" loop></video>
+        <div class="play-overlay" data-play></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-label">Reel 2 of 3 · HD</div>
+        <div class="reel-title">The Tour <span style="color:var(--sand-2);">★</span></div>
+        <div class="reel-duration">54 seconds · contains all 3 morph showpieces</div>
+      </div>
+    </div>
+
+    <div class="reel-card">
+      <div class="video-wrap">
+        <video src="videos/stage2-pick.mp4" muted playsinline preload="metadata" loop></video>
+        <div class="play-overlay" data-play></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-label">Reel 3 of 3 · HD</div>
+        <div class="reel-title">The Pick</div>
+        <div class="reel-duration">40 seconds · pulse-border CTA finish</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features">
+    <h3>Everything in Stage 1, plus:</h3>
+    <ul>
+      <li>2D → 3D animated floorplan morph</li>
+      <li>Two empty → fully-staged room morphs</li>
+      <li>Liquid-glass card styling throughout</li>
+      <li>Curved-underline highlights on key phrases</li>
+      <li>Pulse-border animated CTAs</li>
+      <li>HD render quality (vs Stage 1 draft)</li>
+      <li>Designer interior staging via AI</li>
+      <li>Same 24-hour turnaround</li>
+    </ul>
+    <div class="cta-row">
+      <a href="#book" class="btn-primary" onclick="document.querySelector('select[name=tier]').value='Stage 2 (£75)'">Order Stage 2 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== STAGES 3-5 (COMING SOON) ==================== -->
+<section class="coming-soon">
+  <div class="stage-header" style="text-align:center; margin-bottom:60px;">
+    <div class="stage-num">More tiers landing soon</div>
+    <h2 class="stage-name" style="font-size: clamp(30px, 4vw, 42px);">Stages 3, 4 & 5 — <span class="italic">in design</span></h2>
+    <p class="stage-tagline">
+      We're rolling out new tiers as we lock each one in. Get on the early-access list
+      and be first to see them when they're ready.
+    </p>
+  </div>
+
+  <div class="coming-soon-grid">
+    <div class="coming-card" id="stage-3">
+      <span class="ribbon">In design</span>
+      <h3>Stage 3</h3>
+      <div class="price-line">£TBD</div>
+      <p class="preview">Will likely add multi-aspect (portrait + landscape + square exports) and music bed under VO. Locked in once the framing is right.</p>
+    </div>
+    <div class="coming-card" id="stage-4">
+      <span class="ribbon">In design</span>
+      <h3>Stage 4</h3>
+      <div class="price-line">£TBD</div>
+      <p class="preview">Custom agent intro stamp, voice-cloned VO so it sounds like your own agent talking, and a dedicated "Transformation Showpiece" reel.</p>
+    </div>
+    <div class="coming-card" id="stage-5">
+      <span class="ribbon">Bespoke</span>
+      <h3>Stage 5</h3>
+      <div class="price-line">£TBD · concierge</div>
+      <p class="preview">Full presenter walkthrough — a real human on-screen tour built around your listing, end-to-end production. Top-tier listings only.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FORM ==================== -->
+<section class="booking" id="book">
+  <div class="booking-inner">
+    <div class="booking-eyebrow">Book a property</div>
+    <h2>Drop a URL — we'll do the rest.</h2>
+    <p class="sub">
+      Tell us your name, the property URL, and which tier you'd like. We'll be in touch within
+      a few hours to confirm and start production.
+    </p>
+
+    <form id="booking-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="REPLACE_WITH_WEB3FORMS_ACCESS_KEY" />
+      <input type="hidden" name="from_name" value="Reels for Estates — booking form" />
+      <input type="hidden" name="redirect" value="false" />
+      <div class="field-row">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required placeholder="e.g. Sarah Johnson" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@agency.co.uk" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="property_url">Property URL</label>
+        <input id="property_url" name="property_url" type="url" required
+               placeholder="https://www.rightmove.co.uk/properties/..." />
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="agency">Agency / company</label>
+          <input id="agency" name="agency" type="text" placeholder="(optional)" />
+        </div>
+        <div class="field">
+          <label for="tier">Which tier?</label>
+          <select id="tier" name="tier" required>
+            <option value="Stage 1 (£25)">Stage 1 — £25 (Essentials)</option>
+            <option value="Stage 2 (£75)">Stage 2 — £75 (Showpiece)</option>
+            <option value="Not sure yet">Not sure — please advise</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="notes">Anything we should know?</label>
+        <textarea id="notes" name="notes" rows="3" placeholder="Brand colours, specific features to highlight, deadline... (optional)"></textarea>
+      </div>
+
+      <input type="hidden" name="_subject" value="New listing-video booking" />
+      <input type="text" name="_gotcha" style="display:none" />
+
+      <button type="submit">Send booking →</button>
+      <div class="form-note">We reply within a few hours during UK business hours.</div>
+    </form>
+
+    <div class="thanks" id="thanks">
+      <h3>Got it — thanks!</h3>
+      <p>Your booking has landed in my inbox. I'll be in touch within a few hours with next steps.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <a href="#top" class="brand">Reels<span class="accent">.</span> for Estates</a>
+  <p>UK listing-video service · From £25 per property · Built for estate agents</p>
+  <div class="small">
+    © 2026 · All demos shown use real UK listings with permission ·
+    <a href="#book">Book a property</a>
+  </div>
+</footer>
+
+<script>
+  // === Click play overlays — toggle play/pause + unmute on first interaction ===
+  document.querySelectorAll('[data-play]').forEach(overlay => {
+    const video = overlay.parentElement.querySelector('video');
+    overlay.addEventListener('click', () => {
+      if (video.paused) {
+        video.muted = false;
+        video.currentTime = 0;
+        video.play();
+        overlay.style.opacity = 0;
+      } else {
+        video.pause();
+        overlay.style.opacity = 1;
+      }
+    });
+    video.addEventListener('ended', () => { overlay.style.opacity = 1; });
+  });
+
+  // === Autoplay-on-scroll (muted) — preview when video enters viewport ===
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        if (video.paused && video.muted) video.play().catch(() => {});
+      } else {
+        if (!video.paused && video.muted) video.pause();
+      }
+    });
+  }, { threshold: 0.55 });
+
+  document.querySelectorAll('.reel-card video').forEach(v => observer.observe(v));
+
+  // === Form submit — fetch + show thanks block ===
+  const form = document.getElementById('booking-form');
+  const thanks = document.getElementById('thanks');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        thanks.classList.add('shown');
+      } else {
+        alert('Something went wrong — please email rob@yourdomain.co.uk directly.');
+      }
+    } catch (err) {
+      alert('Network error — please try again.');
+    }
+  });
+</script>
+
+</body>
+</html>
