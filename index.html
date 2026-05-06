@@ -690,6 +690,225 @@
       font-size: 13px; color: var(--fg-3);
       font-style: italic;
     }
+
+    /* === STAGE 4: setup form mock + deliverables grid === */
+    .setup-form-mock {
+      max-width: 920px; margin: 0 auto 60px;
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 600px) { .setup-form-mock { padding: 32px 24px; } }
+    .setup-form-mock::before {
+      content: "";
+      position: absolute; top: 0; left: 0; right: 0; height: 6px;
+      background: linear-gradient(90deg, var(--sand), var(--sage), var(--nv));
+    }
+    .setup-form-mock .step-num {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px; font-weight: 800;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--sand-2);
+      margin-bottom: 12px;
+    }
+    .setup-form-mock h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px; font-weight: 600;
+      color: var(--nv);
+      margin-bottom: 12px;
+    }
+    .setup-form-mock h3 .italic { font-style: italic; color: var(--sand); font-weight: 400; }
+    .setup-form-mock .lead {
+      color: var(--fg-2);
+      font-size: 16px;
+      margin-bottom: 32px;
+      line-height: 1.55;
+    }
+    .setup-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    @media (max-width: 700px) { .setup-grid { grid-template-columns: 1fr; } }
+    .setup-card {
+      padding: 24px 20px;
+      background: var(--bg-2);
+      border-radius: var(--radius);
+      border: 1px dashed var(--line-2);
+      text-align: center;
+    }
+    .setup-card .icon {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .setup-card .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--sand-2);
+      margin-bottom: 6px;
+    }
+    .setup-card .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px; font-weight: 600;
+      color: var(--nv);
+      margin-bottom: 6px;
+    }
+    .setup-card .hint {
+      font-size: 13px; color: var(--fg-2);
+      line-height: 1.4;
+    }
+    .setup-form-mock .footnote {
+      text-align: center;
+      padding: 18px;
+      background: linear-gradient(90deg, rgba(158,171,145,0.10), rgba(201,168,106,0.10));
+      border-radius: 12px;
+      font-size: 14px; color: var(--fg);
+      line-height: 1.55;
+    }
+    .setup-form-mock .footnote strong { color: var(--nv); }
+
+    /* === Deliverables grid (6 cards) === */
+    .deliverables-block { max-width: 1200px; margin: 0 auto 60px; }
+    .deliverables-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px; font-weight: 600;
+      color: var(--nv);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .deliverables-block .sub {
+      text-align: center;
+      color: var(--fg-2);
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+    .deliverables-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .deliverables-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px) { .deliverables-grid { grid-template-columns: 1fr; } }
+    .deliverable {
+      background: white;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-left: 3px solid var(--sand);
+    }
+    .deliverable:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .deliverable .num {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--sand-2);
+      margin-bottom: 8px;
+    }
+    .deliverable .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px; font-weight: 600;
+      color: var(--nv);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .deliverable .meta {
+      font-size: 13px; color: var(--fg-3);
+      margin-bottom: 10px;
+    }
+    .deliverable .desc {
+      font-size: 14px; color: var(--fg-2);
+      line-height: 1.5;
+    }
+
+    /* === Stage 4 video showcase (mixed aspect ratios) === */
+    .stage4-videos {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+    }
+    @media (max-width: 900px) { .stage4-videos { grid-template-columns: 1fr; } }
+    .stage4-videos .v-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .stage4-videos .v-card .frame {
+      position: relative;
+      background: #0a0a0a;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .stage4-videos .v-card.wide .frame { aspect-ratio: 16 / 9; }
+    .stage4-videos .v-card.vert .frame { aspect-ratio: 9 / 16; }
+    .stage4-videos .v-card video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .stage4-videos .v-card .play-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.10);
+      transition: background 0.3s;
+    }
+    .stage4-videos .v-card .play-overlay::after {
+      content: "";
+      width: 64px; height: 64px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+      mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M8 5v14l11-7z"/></svg>');
+      mask-size: 28px;
+      mask-repeat: no-repeat;
+      mask-position: 56% center;
+      -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M8 5v14l11-7z"/></svg>');
+      -webkit-mask-size: 28px;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: 56% center;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .stage4-videos .v-card.playing .play-overlay::after { opacity: 0; }
+    .stage4-videos .v-card .v-meta {
+      padding: 18px 22px;
+      border-top: 1px solid var(--line);
+    }
+    .stage4-videos .v-card .v-meta .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--sand-2);
+    }
+    .stage4-videos .v-card .v-meta .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px; font-weight: 600;
+      color: var(--nv);
+      margin-top: 4px;
+    }
+    .stage4-videos .v-card .v-meta .meta {
+      font-size: 12px; color: var(--fg-3);
+      margin-top: 4px;
+    }
+
+    /* === White-label badge (special, more premium) === */
+    .stage-4-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #1a2b4a 0%, #c9a86a 50%, #1a2b4a 100%);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      margin-bottom: 14px;
+      box-shadow: 0 6px 18px rgba(26,43,74,0.35);
+    }
+    @keyframes shimmer { from { background-position: 0% 0; } to { background-position: 200% 0; } }
   </style>
 </head>
 <body>
@@ -741,11 +960,11 @@
       <div class="tier-price">£139</div>
       <div class="tier-tagline">2-min landscape · captions + chapters</div>
     </a>
-    <a href="#stage-4" class="tier-card-mini ghost">
+    <a href="#stage-4" class="tier-card-mini">
       <div class="tier-num">Stage 4</div>
-      <div class="tier-name">Coming soon</div>
-      <div class="tier-price">£<small>tbd</small></div>
-      <div class="tier-tagline">In design</div>
+      <div class="tier-name">White-Label</div>
+      <div class="tier-price">£229</div>
+      <div class="tier-tagline">Agent voice + face · 6 files</div>
     </a>
     <a href="#stage-5" class="tier-card-mini ghost">
       <div class="tier-num">Stage 5</div>
@@ -985,24 +1204,158 @@
   </div>
 </section>
 
-<!-- ==================== STAGES 4-5 (COMING SOON) ==================== -->
-<section class="coming-soon">
-  <div class="stage-header" style="text-align:center; margin-bottom:60px;">
-    <div class="stage-num">More tiers landing soon</div>
-    <h2 class="stage-name" style="font-size: clamp(30px, 4vw, 42px);">Stages 4 & 5 — <span class="italic">in design</span></h2>
+<div class="divider"><hr/></div>
+
+<!-- ==================== STAGE 4 ==================== -->
+<section class="stage alt" id="stage-4">
+  <div class="stage-header">
+    <span class="stage-4-badge">White-Label · Agent-Branded</span>
+    <div class="stage-num">Stage 4 · White-Label</div>
+    <h2 class="stage-name">Their voice. Their face. <span class="italic">Every video.</span></h2>
+    <div class="stage-price">£229 <small>per property</small></div>
     <p class="stage-tagline">
-      We're rolling out new tiers as we lock each one in. Get on the early-access list
-      and be first to see them when they're ready.
+      Stage 4 wraps everything from Stages 1, 2, and 3 in your agency's branding.
+      We clone your agent's voice once, capture their headshot once, store your logo once —
+      and from then on every video carries their voice + their face. Six files per property.
     </p>
   </div>
 
-  <div class="coming-soon-grid" style="grid-template-columns: 1fr 1fr; max-width: 800px; margin: 0 auto;">
-    <div class="coming-card" id="stage-4">
-      <span class="ribbon">In design</span>
-      <h3>Stage 4</h3>
-      <div class="price-line">£TBD</div>
-      <p class="preview">Custom agent intro stamp, voice-cloned VO so it sounds like your own agent talking, and a dedicated "Transformation Showpiece" reel.</p>
+  <!-- ONE-TIME SETUP MOCKUP -->
+  <div class="setup-form-mock">
+    <div class="step-num">Step Zero · One-Time Setup</div>
+    <h3>Send us three things — <span class="italic">just once.</span></h3>
+    <p class="lead">
+      First Stage 4 order, the agent does this 5-minute setup. After that, every future
+      booking is just "send the URL" — same as Stages 1-3.
+    </p>
+
+    <div class="setup-grid">
+      <div class="setup-card">
+        <div class="icon">🎙️</div>
+        <div class="label">Voice Note</div>
+        <div class="name">30 seconds</div>
+        <div class="hint">A quiet WhatsApp voice note — read anything for ~30 sec. We clone the voice via ElevenLabs.</div>
+      </div>
+      <div class="setup-card">
+        <div class="icon">📸</div>
+        <div class="label">Headshot</div>
+        <div class="name">One photo</div>
+        <div class="hint">Clear face shot, phone selfie is fine. Used in the 3-sec intro stamp + thumbnail.</div>
+      </div>
+      <div class="setup-card">
+        <div class="icon">🎨</div>
+        <div class="label">Brand</div>
+        <div class="name">Logo + colour</div>
+        <div class="hint">Agency logo PNG + brand colour hex. Auto-applied to every video frame.</div>
+      </div>
     </div>
+
+    <div class="footnote">
+      ⚡ <strong>Stored against the agency email — done forever.</strong> Every Stage 4 order from
+      that agency auto-pulls the voice, photo, and brand. Per-property friction = exactly the same
+      as Stage 1 (drop a URL, done).
+    </div>
+  </div>
+
+  <!-- DELIVERABLES GRID -->
+  <div class="deliverables-block">
+    <h3>What lands in your inbox · 6 files per property</h3>
+    <p class="sub">All in the agent's cloned voice. All carrying the 3-sec intro stamp.</p>
+    <div class="deliverables-grid">
+      <div class="deliverable">
+        <div class="num">File 1-3</div>
+        <div class="name">3 Vertical Reels</div>
+        <div class="meta">9:16 · ~30s each · IG/TikTok</div>
+        <div class="desc">Hook + Tour + Pick. Same as Stage 2 but narrated in the agent's cloned voice.</div>
+      </div>
+      <div class="deliverable">
+        <div class="num">File 4</div>
+        <div class="name">2-min Hero Video</div>
+        <div class="meta">16:9 · 1920×1080 HD · YouTube</div>
+        <div class="desc">Stage 3's full property tour, with the custom 3-sec branded intro and the agent's voice.</div>
+      </div>
+      <div class="deliverable">
+        <div class="num">File 5</div>
+        <div class="name">1:1 Square Recut</div>
+        <div class="meta">1080×1080 · Facebook + LinkedIn</div>
+        <div class="desc">The hero re-cut for square timeline posts. Captions auto-shift up.</div>
+      </div>
+      <div class="deliverable">
+        <div class="num">File 6</div>
+        <div class="name">9:16 Vertical Recut</div>
+        <div class="meta">1080×1920 · IG Reels + TikTok</div>
+        <div class="desc">The hero re-cut for vertical scroll. Same content, mobile-first.</div>
+      </div>
+      <div class="deliverable">
+        <div class="num">Bonus</div>
+        <div class="name">Transformation Showpiece</div>
+        <div class="meta">9:16 · 30s · agency sizzle reel</div>
+        <div class="desc">Reusable across every listing. Stitches your morphs into one "this is what we do" reel for the agency's own marketing.</div>
+      </div>
+      <div class="deliverable">
+        <div class="num">Bonus</div>
+        <div class="name">Custom Thumbnail</div>
+        <div class="meta">1280×720 PNG · YouTube</div>
+        <div class="desc">Stage 3's thumbnail design with the agent's headshot added bottom-right.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 4 VIDEO SHOWCASE -->
+  <div class="stage4-videos">
+    <div class="v-card wide" id="s4-hero-wrap">
+      <div class="frame">
+        <video src="videos/stage4-hero.mp4" muted playsinline preload="metadata"></video>
+        <div class="play-overlay" data-play></div>
+      </div>
+      <div class="v-meta">
+        <div class="label">Demo · 16:9 Hero</div>
+        <div class="title">2-min hero with Janice intro + cloned voice</div>
+        <div class="meta">~2:03 · 1920×1080 HD · burned captions + branded intro stamp</div>
+      </div>
+    </div>
+    <div class="v-card vert" id="s4-show-wrap">
+      <div class="frame">
+        <video src="videos/stage4-showpiece.mp4" muted playsinline preload="metadata"></video>
+        <div class="play-overlay" data-play></div>
+      </div>
+      <div class="v-meta">
+        <div class="label">Bonus · Showpiece</div>
+        <div class="title">30s Transformation reel</div>
+        <div class="meta">9:16 · agency sizzle · re-used across listings</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features">
+    <h3>Everything in Stages 1, 2 & 3, plus:</h3>
+    <ul>
+      <li>Agent's own cloned voice on every video (ElevenLabs)</li>
+      <li>3-sec branded intro stamp (their face + agency name)</li>
+      <li>1:1 square + 9:16 vertical recuts of the hero video</li>
+      <li>Reusable 30-sec Transformation Showpiece reel</li>
+      <li>Headshot added to the YouTube thumbnail</li>
+      <li>One-time setup, used forever (same friction as Stages 1-3 thereafter)</li>
+      <li>Agency-coloured branding throughout</li>
+      <li>6 deliverable files per property</li>
+    </ul>
+    <div class="cta-row">
+      <a href="#book" class="btn-primary" onclick="document.querySelector('select[name=tier]').value='Stage 4 (£229)'">Order Stage 4 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== STAGE 5 (STILL COMING SOON) ==================== -->
+<section class="coming-soon">
+  <div class="stage-header" style="text-align:center; margin-bottom:60px;">
+    <div class="stage-num">One more tier landing soon</div>
+    <h2 class="stage-name" style="font-size: clamp(30px, 4vw, 42px);">Stage 5 — <span class="italic">in design</span></h2>
+    <p class="stage-tagline">
+      Top-of-range concierge tier. Watch this space — it's the big one.
+    </p>
+  </div>
+
+  <div class="coming-soon-grid" style="grid-template-columns: 1fr; max-width: 540px; margin: 0 auto;">
     <div class="coming-card" id="stage-5">
       <span class="ribbon">Bespoke</span>
       <h3>Stage 5</h3>
@@ -1054,6 +1407,7 @@
             <option value="Stage 1 (£25)">Stage 1 — £25 (Essentials, 3 vertical reels)</option>
             <option value="Stage 2 (£75)">Stage 2 — £75 (Showpiece, 3 reels + morphs)</option>
             <option value="Stage 3 (£139)">Stage 3 — £139 (YouTube Hero, 1 × 2-min landscape)</option>
+            <option value="Stage 4 (£229)">Stage 4 — £229 (White-Label, 6 files in agent voice + face)</option>
             <option value="Not sure yet">Not sure — please advise</option>
           </select>
         </div>
@@ -1090,9 +1444,9 @@
 <script>
   // === Click play overlays — toggle play/pause + unmute on first interaction ===
   document.querySelectorAll('[data-play]').forEach(overlay => {
-    // Find sibling video (works for both .reel-card and .hero-video-wrap structures)
+    // Find sibling video (works for .reel-card, .hero-video-wrap, and .v-card structures)
     const video = overlay.parentElement.querySelector('video');
-    const wrap = overlay.closest('.hero-video-wrap');
+    const wrap = overlay.closest('.hero-video-wrap, .v-card');
     overlay.addEventListener('click', () => {
       if (video.paused) {
         video.muted = false;
