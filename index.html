@@ -962,9 +962,9 @@
     </a>
     <a href="#stage-4" class="tier-card-mini">
       <div class="tier-num">Stage 4</div>
-      <div class="tier-name">White-Label</div>
+      <div class="tier-name">Property Site</div>
       <div class="tier-price">£229</div>
-      <div class="tier-tagline">Agent voice + face · 6 files</div>
+      <div class="tier-tagline">Live web page + PDF brochure</div>
     </a>
     <a href="#stage-5" class="tier-card-mini ghost">
       <div class="tier-num">Stage 5</div>
@@ -1206,138 +1206,100 @@
 
 <div class="divider"><hr/></div>
 
-<!-- ==================== STAGE 4 ==================== -->
+<!-- ==================== STAGE 4 — PROPERTY MARKETING SITE ==================== -->
 <section class="stage alt" id="stage-4">
   <div class="stage-header">
-    <span class="stage-4-badge">White-Label · Agent-Branded</span>
-    <div class="stage-num">Stage 4 · White-Label</div>
-    <h2 class="stage-name">Their voice. Their face. <span class="italic">Every video.</span></h2>
+    <span class="stage-4-badge">Property Marketing Site</span>
+    <div class="stage-num">Stage 4 · Property Site + PDF Brochure</div>
+    <h2 class="stage-name">A live web page <span class="italic">+ printable brochure</span><br/>for every listing.</h2>
     <div class="stage-price">£229 <small>per property</small></div>
     <p class="stage-tagline">
-      Stage 4 wraps everything from Stages 1, 2, and 3 in your agency's branding.
-      We clone your agent's voice once, capture their headshot once, store your logo once —
-      and from then on every video carries their voice + their face. Six files per property.
+      Stage 4 turns every listing into a complete marketing pack: a dedicated mobile-friendly
+      web page (with all your earlier-stage videos embedded) + an A4 PDF brochure to email
+      to interested buyers + a branded QR code for for-sale boards. Hosted free on Vercel —
+      hand the URL to your IT team or share it directly.
     </p>
   </div>
 
-  <!-- ONE-TIME SETUP MOCKUP -->
-  <div class="setup-form-mock">
-    <div class="step-num">Step Zero · One-Time Setup</div>
-    <h3>Send us three things — <span class="italic">just once.</span></h3>
-    <p class="lead">
-      First Stage 4 order, the agent does this 5-minute setup. After that, every future
-      booking is just "send the URL" — same as Stages 1-3.
-    </p>
-
-    <div class="setup-grid">
-      <div class="setup-card">
-        <div class="icon">🎙️</div>
-        <div class="label">Voice Note</div>
-        <div class="name">30 seconds</div>
-        <div class="hint">A quiet WhatsApp voice note — read anything for ~30 sec. We clone the voice via ElevenLabs.</div>
+  <!-- LIVE DEMO PREVIEW -->
+  <div style="max-width: 1100px; margin: 0 auto 60px;">
+    <div style="background: white; border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-lg);">
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 32px; align-items: center;">
+        <div>
+          <div style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sand-2); margin-bottom: 10px;">▶ Live Demo</div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 600; color: var(--nv); margin-bottom: 12px;">1 Wilton Road, Hornsea</h3>
+          <p style="font-size: 15px; color: var(--fg-2); line-height: 1.6; margin: 0 0 18px;">
+            Click below to open the actual deployed property page — full hero video, photo gallery, floorplan, room dimensions, location map, and enquiry form. All built from the property data we already scraped in Stages 1-3.
+          </p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="https://wilton-road-hornsea.vercel.app/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; background: var(--nv); color: white; border-radius: var(--radius-pill); font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; text-decoration: none;">🔗 Open the live page →</a>
+            <a href="https://wilton-road-hornsea.vercel.app/brochure.pdf" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; background: white; color: var(--nv); border: 1px solid var(--line-2); border-radius: var(--radius-pill); font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700; text-decoration: none;">📄 Download the PDF brochure</a>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <div style="background: var(--bg-2); border-radius: var(--radius); padding: 18px; display: inline-block;">
+            <img src="videos/stage3-thumb.png" alt="Wilton Road" style="width: 200px; aspect-ratio: 16/9; object-fit: cover; border-radius: 12px; box-shadow: var(--shadow-md);" />
+            <div style="font-family: 'Inter', sans-serif; font-size: 11px; color: var(--fg-3); letter-spacing: 0.04em; margin-top: 10px;">wilton-road-hornsea.vercel.app</div>
+          </div>
+        </div>
       </div>
-      <div class="setup-card">
-        <div class="icon">📸</div>
-        <div class="label">Headshot</div>
-        <div class="name">One photo</div>
-        <div class="hint">Clear face shot, phone selfie is fine. Used in the 3-sec intro stamp + thumbnail.</div>
-      </div>
-      <div class="setup-card">
-        <div class="icon">🎨</div>
-        <div class="label">Brand</div>
-        <div class="name">Logo + colour</div>
-        <div class="hint">Agency logo PNG + brand colour hex. Auto-applied to every video frame.</div>
-      </div>
-    </div>
-
-    <div class="footnote">
-      ⚡ <strong>Stored against the agency email — done forever.</strong> Every Stage 4 order from
-      that agency auto-pulls the voice, photo, and brand. Per-property friction = exactly the same
-      as Stage 1 (drop a URL, done).
     </div>
   </div>
 
-  <!-- DELIVERABLES GRID -->
+  <!-- DELIVERABLES (4 CARDS) -->
   <div class="deliverables-block">
-    <h3>What lands in your inbox · 6 files per property</h3>
-    <p class="sub">All in the agent's cloned voice. All carrying the 3-sec intro stamp.</p>
-    <div class="deliverables-grid">
+    <h3>What lands per property · 4 deliverables</h3>
+    <p class="sub">Re-uses everything you already paid for in Stages 1-3. Nothing rendered twice.</p>
+    <div class="deliverables-grid" style="grid-template-columns: repeat(2, 1fr); max-width: 900px; margin: 0 auto;">
       <div class="deliverable">
-        <div class="num">File 1-3</div>
-        <div class="name">3 Vertical Reels</div>
-        <div class="meta">9:16 · ~30s each · IG/TikTok</div>
-        <div class="desc">Hook + Tour + Pick. Same as Stage 2 but narrated in the agent's cloned voice.</div>
+        <div class="num">Deliverable 1 · The Star</div>
+        <div class="name">Per-Property Web Page</div>
+        <div class="meta">Hosted free on Vercel · ~10 sections · mobile-responsive</div>
+        <div class="desc">Hero · embedded hero video · 3 quick-look reels · about + features · room dimensions · floorplan · 10-photo gallery · location map · agent contact + enquiry form · downloads bar.</div>
       </div>
       <div class="deliverable">
-        <div class="num">File 4</div>
-        <div class="name">2-min Hero Video</div>
-        <div class="meta">16:9 · 1920×1080 HD · YouTube</div>
-        <div class="desc">Stage 3's full property tour, with the custom 3-sec branded intro and the agent's voice.</div>
+        <div class="num">Deliverable 2 · The Take-Away</div>
+        <div class="name">A4 PDF Brochure</div>
+        <div class="meta">6 pages · 300dpi · print-ready</div>
+        <div class="desc">Cover with hero shot + price · description + features + key stats · 8 photos across 2 pages · floorplan + room dimensions · agent contact + QR code back cover.</div>
       </div>
       <div class="deliverable">
-        <div class="num">File 5</div>
-        <div class="name">1:1 Square Recut</div>
-        <div class="meta">1080×1080 · Facebook + LinkedIn</div>
-        <div class="desc">The hero re-cut for square timeline posts. Captions auto-shift up.</div>
+        <div class="num">Deliverable 3 · The Spreader</div>
+        <div class="name">Branded QR Code PNG</div>
+        <div class="meta">High-res · agency colour</div>
+        <div class="desc">Print on for-sale boards, business cards, mailers — scans to the live property page. Buyers see HD video on their phone in seconds.</div>
       </div>
       <div class="deliverable">
-        <div class="num">File 6</div>
-        <div class="name">9:16 Vertical Recut</div>
-        <div class="meta">1080×1920 · IG Reels + TikTok</div>
-        <div class="desc">The hero re-cut for vertical scroll. Same content, mobile-first.</div>
-      </div>
-      <div class="deliverable">
-        <div class="num">Bonus</div>
-        <div class="name">Transformation Showpiece</div>
-        <div class="meta">9:16 · 30s · agency sizzle reel</div>
-        <div class="desc">Reusable across every listing. Stitches your morphs into one "this is what we do" reel for the agency's own marketing.</div>
-      </div>
-      <div class="deliverable">
-        <div class="num">Bonus</div>
-        <div class="name">Custom Thumbnail</div>
-        <div class="meta">1280×720 PNG · YouTube</div>
-        <div class="desc">Stage 3's thumbnail design with the agent's headshot added bottom-right.</div>
+        <div class="num">Deliverable 4 · The Bonus</div>
+        <div class="name">All Stage 1-3 Videos Embedded</div>
+        <div class="meta">3 reels + Stage 2 morph tour + Stage 3 hero</div>
+        <div class="desc">Every video you bought from us in earlier stages is auto-embedded on the page. The agent gets one URL that contains EVERYTHING.</div>
       </div>
     </div>
   </div>
 
-  <!-- STAGE 4 VIDEO SHOWCASE -->
-  <div class="stage4-videos">
-    <div class="v-card wide" id="s4-hero-wrap">
-      <div class="frame">
-        <video src="videos/stage4-hero.mp4" muted playsinline preload="metadata"></video>
-        <div class="play-overlay" data-play></div>
-      </div>
-      <div class="v-meta">
-        <div class="label">Demo · 16:9 Hero</div>
-        <div class="title">2-min hero with Janice intro + cloned voice</div>
-        <div class="meta">~2:03 · 1920×1080 HD · burned captions + branded intro stamp</div>
-      </div>
-    </div>
-    <div class="v-card vert" id="s4-show-wrap">
-      <div class="frame">
-        <video src="videos/stage4-showpiece.mp4" muted playsinline preload="metadata"></video>
-        <div class="play-overlay" data-play></div>
-      </div>
-      <div class="v-meta">
-        <div class="label">Bonus · Showpiece</div>
-        <div class="title">30s Transformation reel</div>
-        <div class="meta">9:16 · agency sizzle · re-used across listings</div>
-      </div>
-    </div>
+  <!-- HOW IT WORKS -->
+  <div style="max-width: 900px; margin: 0 auto 60px; background: var(--bg-2); border-radius: var(--radius-lg); padding: 40px 48px;">
+    <h3 style="font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; color: var(--nv); text-align: center; margin-bottom: 24px;">How the hosting works</h3>
+    <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 14px;">
+      <li style="display: flex; gap: 14px; align-items: flex-start;"><span style="background: var(--sand); color: var(--nv); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0;">1</span><span style="font-size: 15px; color: var(--fg); line-height: 1.55;"><strong>We deploy each listing to Vercel</strong> — free tier, no infrastructure for you to manage. You get the URL within minutes of ordering.</span></li>
+      <li style="display: flex; gap: 14px; align-items: flex-start;"><span style="background: var(--sand); color: var(--nv); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0;">2</span><span style="font-size: 15px; color: var(--fg); line-height: 1.55;"><strong>You share the URL anywhere</strong> — for-sale board QR, Rightmove "see more", your email signature, WhatsApp, business cards.</span></li>
+      <li style="display: flex; gap: 14px; align-items: flex-start;"><span style="background: var(--sand); color: var(--nv); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0;">3</span><span style="font-size: 15px; color: var(--fg); line-height: 1.55;"><strong>Want to host on your own domain?</strong> We hand over the source files — your IT team can re-deploy under your agency's domain whenever they're ready. No lock-in.</span></li>
+      <li style="display: flex; gap: 14px; align-items: flex-start;"><span style="background: var(--sand); color: var(--nv); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0;">4</span><span style="font-size: 15px; color: var(--fg); line-height: 1.55;"><strong>Branded with your agency colours</strong> when you provide a logo + brand colour. Defaults to coastal cream/navy if not.</span></li>
+    </ul>
   </div>
 
   <div class="features">
     <h3>Everything in Stages 1, 2 & 3, plus:</h3>
     <ul>
-      <li>Agent's own cloned voice on every video (ElevenLabs)</li>
-      <li>3-sec branded intro stamp (their face + agency name)</li>
-      <li>1:1 square + 9:16 vertical recuts of the hero video</li>
-      <li>Reusable 30-sec Transformation Showpiece reel</li>
-      <li>Headshot added to the YouTube thumbnail</li>
-      <li>One-time setup, used forever (same friction as Stages 1-3 thereafter)</li>
-      <li>Agency-coloured branding throughout</li>
-      <li>6 deliverable files per property</li>
+      <li>Per-property Vercel landing page</li>
+      <li>A4 PDF brochure (6 pages, print-ready)</li>
+      <li>Branded QR code PNG for for-sale boards</li>
+      <li>All Stage 1-3 videos embedded on the page</li>
+      <li>Mobile-responsive, fast-loading</li>
+      <li>Direct enquiry form → your inbox</li>
+      <li>OpenStreetMap location embed</li>
+      <li>Source files handed over for self-hosting</li>
     </ul>
     <div class="cta-row">
       <a href="#book" class="btn-primary" onclick="document.querySelector('select[name=tier]').value='Stage 4 (£229)'">Order Stage 4 →</a>
@@ -1407,7 +1369,7 @@
             <option value="Stage 1 (£25)">Stage 1 — £25 (Essentials, 3 vertical reels)</option>
             <option value="Stage 2 (£75)">Stage 2 — £75 (Showpiece, 3 reels + morphs)</option>
             <option value="Stage 3 (£139)">Stage 3 — £139 (YouTube Hero, 1 × 2-min landscape)</option>
-            <option value="Stage 4 (£229)">Stage 4 — £229 (White-Label, 6 files in agent voice + face)</option>
+            <option value="Stage 4 (£229)">Stage 4 — £229 (Property Site + PDF brochure)</option>
             <option value="Not sure yet">Not sure — please advise</option>
           </select>
         </div>
