@@ -15,6 +15,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
+  <!-- Google's <model-viewer> for the 3D + AR live demo -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
   <style>
     :root {
       --bg: #f8f5f0;
@@ -1082,6 +1085,41 @@
       <div class="label">Showpiece 4</div>
       <strong>3D Walk-Through</strong>
       <p>Auto-rotating 360° render of the apartment built as a real 3D model — every room visible by name, baked into The Tour reel.</p>
+    </div>
+  </div>
+
+  <!-- LIVE 3D MODEL DEMO -->
+  <div style="max-width: 1100px; margin: 60px auto 20px; background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--line-2);">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; background: linear-gradient(180deg, white 0%, var(--bg-2) 100%); border-bottom: 1px solid var(--line);">
+      <span style="font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sand-2);">▶ Live 3D Demo · 1 Wilton Road</span>
+      <span style="font-family: 'Inter', sans-serif; font-size: 12px; color: var(--fg-3);">Drag to rotate · pinch to zoom · tap AR on phone</span>
+    </div>
+    <model-viewer
+      src="3d-demo/room.glb"
+      ios-src="3d-demo/room.glb"
+      camera-controls
+      auto-rotate
+      auto-rotate-delay="3000"
+      rotation-per-second="20deg"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      ar-scale="auto"
+      shadow-intensity="1.2"
+      exposure="1.05"
+      environment-image="neutral"
+      camera-orbit="-25deg 60deg 105%"
+      field-of-view="32deg"
+      interaction-prompt="none"
+      style="width: 100%; height: 60vh; max-height: 640px; min-height: 420px; background: linear-gradient(180deg, #f3eed8 0%, #e8e1d0 100%);"
+      alt="3D walk-through of 1 Wilton Road Hornsea apartment">
+    </model-viewer>
+    <div style="padding: 18px 24px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; border-top: 1px solid var(--line); background: white;">
+      <div style="font-family: 'Inter', sans-serif; font-size: 13px; color: var(--fg-2); flex: 1; min-width: 220px; line-height: 1.55;">
+        <strong style="color: var(--nv);">Stage 2:</strong> this auto-rotation, baked into The Tour reel as a video clip.
+        <br/>
+        <strong style="color: var(--nv);">Stage 4:</strong> this exact LIVE viewer embedded on the property page, plus the AR button (iPhone QuickLook + Android SceneViewer).
+      </div>
+      <a href="https://wilton-road-hornsea.vercel.app/#room-3d" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; background: var(--nv); color: white; border-radius: var(--radius-pill); font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; text-decoration: none;">See it on the live property page →</a>
     </div>
   </div>
 
