@@ -181,6 +181,70 @@
       border: 1.5px solid var(--nv); font-size: 14px;
     }
 
+    /* Hotspots */
+    .hotspot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--sand);
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px var(--sand-2), 0 4px 14px rgba(0,0,0,0.35);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--nv); font-weight: 800; font-size: 14px;
+      animation: hotspotPulse 2.4s ease-in-out infinite;
+      transition: transform 0.18s ease;
+      pointer-events: auto;
+    }
+    .hotspot:hover { transform: scale(1.15); }
+    @keyframes hotspotPulse {
+      0%, 100% { box-shadow: 0 0 0 2px var(--sand-2), 0 4px 14px rgba(0,0,0,0.35), 0 0 0 0px rgba(201,168,106,0.6); }
+      50% { box-shadow: 0 0 0 2px var(--sand-2), 0 4px 14px rgba(0,0,0,0.35), 0 0 0 14px rgba(201,168,106,0); }
+    }
+
+    /* Hotspot detail panel */
+    .hotspot-panel {
+      position: fixed; right: 20px; top: 80px;
+      width: 360px; max-width: calc(100vw - 40px);
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(26,43,74,0.18), 0 4px 16px rgba(26,43,74,0.08);
+      border: 1px solid rgba(26,43,74,0.06);
+      padding: 22px 24px;
+      transform: translateX(120%);
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(.2,.8,.2,1), opacity 0.25s;
+      z-index: 9999;
+      pointer-events: auto;
+    }
+    .hotspot-panel.show { transform: translateX(0); opacity: 1; }
+    .hotspot-panel .close {
+      position: absolute; top: 12px; right: 12px;
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--bg-2); border: none; cursor: pointer;
+      font-size: 16px; color: var(--fg-2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hotspot-panel .tag {
+      display: inline-block; background: var(--sand);
+      color: var(--nv); font-weight: 700; font-size: 11px;
+      padding: 4px 10px; border-radius: 999px;
+      letter-spacing: 1.5px; margin-bottom: 10px;
+    }
+    .hotspot-panel h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; color: var(--nv); margin-bottom: 6px;
+    }
+    .hotspot-panel .sub { color: var(--fg-3); font-size: 13px; margin-bottom: 14px; }
+    .hotspot-panel p { color: var(--fg-2); font-size: 14px; margin-bottom: 12px; line-height: 1.5; }
+    .hotspot-panel ul { padding-left: 18px; color: var(--fg-2); font-size: 14px; }
+    .hotspot-panel ul li { margin-bottom: 6px; }
+    @media (max-width: 600px) {
+      .hotspot-panel {
+        right: 12px; left: 12px; top: auto; bottom: 12px;
+        width: auto;
+      }
+    }
+
     /* Powered-by footer */
     .footer {
       background: var(--nv); color: rgba(255,255,255,0.7);
@@ -240,7 +304,30 @@
       poster=""
       alt="3D model of a raised room layout">
       <div slot="progress-bar"></div>
+
+      <!-- Hotspots: data-position is x y z in model space. Tweak these to fit the actual room. -->
+      <button class="hotspot" slot="hotspot-kitchen"
+        data-position="-0.45 0.05 0.2" data-normal="0 1 0"
+        data-key="kitchen">1</button>
+      <button class="hotspot" slot="hotspot-living"
+        data-position="0.05 0.05 0.3" data-normal="0 1 0"
+        data-key="living">2</button>
+      <button class="hotspot" slot="hotspot-master"
+        data-position="0.45 0.05 -0.2" data-normal="0 1 0"
+        data-key="master">3</button>
+      <button class="hotspot" slot="hotspot-loft"
+        data-position="-0.1 0.4 -0.3" data-normal="0 1 0"
+        data-key="loft">4</button>
+      <button class="hotspot" slot="hotspot-garden"
+        data-position="0.55 0.05 0.4" data-normal="0 1 0"
+        data-key="garden">5</button>
     </model-viewer>
+
+    <!-- Hotspot detail panel (one panel, content swapped on click) -->
+    <div id="hotspot-panel" class="hotspot-panel" role="dialog" aria-hidden="true">
+      <button class="close" id="hotspot-close" aria-label="Close">×</button>
+      <div id="hotspot-content"></div>
+    </div>
 
     <div class="ar-row">
       <button class="btn-ar" id="ar-btn">
@@ -301,6 +388,74 @@
       try { mv.activateAR(); } catch (e) {
         alert("AR not supported on this device or browser. Try Safari on iPhone or Chrome on Android.");
       }
+    });
+
+    // Hotspot data: tag, title, sub, body, bullets
+    const HOTSPOTS = {
+      kitchen: {
+        tag: "01 · KITCHEN",
+        title: "Renovated Kitchen-Diner",
+        sub: "Open-plan, south facing",
+        body: "Knocked through in 2024. Quartz worktops, induction hob, integrated Bosch fridge-freezer. Bi-fold doors open onto the rear garden.",
+        bullets: ["18 m² floor area", "Bosch / Siemens appliances", "Quartz worktops 30mm", "Underfloor heating"]
+      },
+      living: {
+        tag: "02 · LIVING ROOM",
+        title: "Raised Living Room",
+        sub: "Original 1920s feature",
+        body: "Three steps up from the entrance hall, opening onto a vaulted ceiling with exposed beams. South-facing bay window floods the space all afternoon.",
+        bullets: ["Original 1920s beams", "Vaulted 4m ceiling", "Bay window with seat", "Engineered oak floor"]
+      },
+      master: {
+        tag: "03 · MASTER BEDROOM",
+        title: "Master Suite",
+        sub: "First floor · ensuite",
+        body: "Double bedroom with fitted wardrobes and ensuite shower room. Window faces the rear garden — quiet aspect, no street noise.",
+        bullets: ["14 m² + ensuite", "Fitted wardrobes", "Ensuite power shower", "Garden-facing window"]
+      },
+      loft: {
+        tag: "04 · LOFT OFFICE",
+        title: "Loft Conversion",
+        sub: "Converted 2024 · home office",
+        body: "Full Velux dormer conversion completed last year. Currently used as a home office but easily a 4th bedroom or studio. Building regs sign-off available.",
+        bullets: ["Velux dormer", "Insulated to current spec", "Sign-off paperwork available", "Cat6 ethernet drop"]
+      },
+      garden: {
+        tag: "05 · GARDEN",
+        title: "South-Facing Garden",
+        sub: "Private rear garden",
+        body: "Approximately 90 m² south-facing rear garden. Mature beech hedge, paved patio with covered seating area, and lawn beyond.",
+        bullets: ["~90 m² rear", "South facing", "Covered patio", "Side access from drive"]
+      }
+    };
+
+    const panel = document.getElementById("hotspot-panel");
+    const content = document.getElementById("hotspot-content");
+    const closeBtn = document.getElementById("hotspot-close");
+
+    function showHotspot(key) {
+      const d = HOTSPOTS[key];
+      if (!d) return;
+      content.innerHTML =
+        `<div class="tag">${d.tag}</div>` +
+        `<h4>${d.title}</h4>` +
+        `<div class="sub">${d.sub}</div>` +
+        `<p>${d.body}</p>` +
+        `<ul>${d.bullets.map(b => `<li>${b}</li>`).join("")}</ul>`;
+      panel.classList.add("show");
+      panel.setAttribute("aria-hidden", "false");
+    }
+    function hideHotspot() {
+      panel.classList.remove("show");
+      panel.setAttribute("aria-hidden", "true");
+    }
+    closeBtn.addEventListener("click", hideHotspot);
+
+    document.querySelectorAll(".hotspot").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        showHotspot(btn.dataset.key);
+      });
     });
   </script>
 </body>
