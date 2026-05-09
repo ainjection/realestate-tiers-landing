@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>5 Springvale Crescent — Sample 3D Listing | AI Injection Realestate</title>
+  <meta name="description" content="Interactive 3D room walkthrough demo for a UK property listing — drag to rotate, tap AR to view in your room (iOS / Android)." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Google's <model-viewer> web component -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #f8f5f0;
+      --bg-2: #efeadd;
+      --bg-3: #e8e1d0;
+      --nv: #1a2b4a;
+      --nv-2: #2a3d5e;
+      --sand: #c9a86a;
+      --sand-2: #b08d4a;
+      --sage: #6b8264;
+      --fg: #1a2b4a;
+      --fg-2: #4a5a72;
+      --fg-3: #7a8595;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header bar */
+    .topbar {
+      background: var(--nv);
+      color: #fff;
+      padding: 14px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 14px; letter-spacing: 0.5px;
+    }
+    .topbar .brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700; font-size: 19px;
+    }
+    .topbar .cta {
+      background: var(--sand); color: var(--nv);
+      padding: 8px 18px; border-radius: 999px;
+      font-weight: 600; text-decoration: none; font-size: 13px;
+    }
+
+    /* Hero block */
+    .hero { padding: 36px 28px 24px; max-width: 1200px; margin: 0 auto; }
+    .crumb { font-size: 13px; color: var(--fg-3); margin-bottom: 8px; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 700; color: var(--nv);
+      margin-bottom: 6px; line-height: 1.1;
+    }
+    .hero .price {
+      font-size: clamp(22px, 4vw, 28px);
+      font-weight: 700; color: var(--sand-2);
+    }
+    .hero .meta {
+      display: flex; gap: 24px; flex-wrap: wrap;
+      margin-top: 12px; color: var(--fg-2); font-size: 14px;
+    }
+    .hero .meta span::before { content: "•  "; color: var(--sand); }
+    .hero .meta span:first-child::before { content: ""; }
+
+    /* 3D viewer card */
+    .viewer-card {
+      max-width: 1200px; margin: 12px auto 28px;
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 50px rgba(26,43,74,0.08), 0 4px 14px rgba(26,43,74,0.06);
+      border: 1px solid rgba(26,43,74,0.06);
+    }
+    .viewer-card-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 22px;
+      background: linear-gradient(180deg, #fff 0%, var(--bg-2) 100%);
+      border-bottom: 1px solid rgba(26,43,74,0.05);
+    }
+    .viewer-card-bar .label {
+      font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--sand-2); font-weight: 700;
+    }
+    .viewer-card-bar .hint {
+      font-size: 12px; color: var(--fg-3);
+    }
+    model-viewer {
+      width: 100%;
+      height: 60vh; max-height: 720px; min-height: 420px;
+      background: linear-gradient(180deg, #f3eed8 0%, #e8e1d0 100%);
+      --poster-color: transparent;
+    }
+    .ar-row {
+      display: flex; gap: 14px; padding: 18px 22px;
+      border-top: 1px solid rgba(26,43,74,0.05);
+      background: #fff;
+      flex-wrap: wrap; align-items: center;
+    }
+    .btn-ar {
+      background: var(--nv); color: #fff;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 600; font-size: 14px; letter-spacing: 0.5px;
+      cursor: pointer; border: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: transform 0.15s ease, background 0.2s;
+    }
+    .btn-ar:hover { background: var(--nv-2); transform: translateY(-1px); }
+    .btn-ar svg { width: 16px; height: 16px; fill: currentColor; }
+    .ar-row .note {
+      font-size: 13px; color: var(--fg-3); flex: 1; min-width: 220px;
+    }
+
+    /* Description */
+    .body {
+      max-width: 1200px; margin: 28px auto;
+      padding: 0 28px 60px;
+      display: grid; gap: 32px;
+      grid-template-columns: 2fr 1fr;
+    }
+    @media (max-width: 760px) {
+      .body { grid-template-columns: 1fr; }
+    }
+    .body section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px; font-weight: 700; color: var(--nv);
+      margin-bottom: 12px;
+    }
+    .body p { color: var(--fg-2); margin-bottom: 16px; font-size: 15px; }
+    .features {
+      display: grid; gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      margin-top: 16px;
+    }
+    .features div {
+      background: var(--bg-2);
+      padding: 12px 16px; border-radius: 10px;
+      font-size: 13px; color: var(--fg);
+      border-left: 3px solid var(--sand);
+    }
+
+    /* Sidebar — agent box */
+    .sidebar {
+      background: #fff;
+      border-radius: 14px;
+      padding: 22px;
+      border: 1px solid rgba(26,43,74,0.06);
+      box-shadow: 0 6px 20px rgba(26,43,74,0.04);
+      align-self: flex-start;
+      position: sticky; top: 20px;
+    }
+    .sidebar h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px; color: var(--nv); margin-bottom: 4px;
+    }
+    .sidebar .agency { color: var(--fg-3); font-size: 13px; margin-bottom: 18px; }
+    .sidebar .arrange {
+      display: block; width: 100%;
+      background: var(--sand); color: var(--nv);
+      padding: 14px; border-radius: 10px;
+      font-weight: 700; text-align: center; text-decoration: none;
+      margin-bottom: 10px; font-size: 14px;
+    }
+    .sidebar .ghost {
+      display: block; width: 100%;
+      background: transparent; color: var(--nv);
+      padding: 14px; border-radius: 10px;
+      font-weight: 600; text-align: center; text-decoration: none;
+      border: 1.5px solid var(--nv); font-size: 14px;
+    }
+
+    /* Powered-by footer */
+    .footer {
+      background: var(--nv); color: rgba(255,255,255,0.7);
+      padding: 28px; text-align: center; font-size: 13px;
+    }
+    .footer .pill {
+      display: inline-block;
+      background: rgba(201,168,106,0.18);
+      color: var(--sand);
+      padding: 6px 14px; border-radius: 999px;
+      font-weight: 600; font-size: 12px; letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand">AI Injection · Realestate</div>
+    <a class="cta" href="../">View tiers</a>
+  </div>
+
+  <div class="hero">
+    <div class="crumb">Sample listing · Wakefield</div>
+    <h1>5 Springvale Crescent, Wakefield</h1>
+    <div class="price">£325,000</div>
+    <div class="meta">
+      <span>3 bedrooms</span>
+      <span>2 bathrooms</span>
+      <span>Detached</span>
+      <span>Sample listing — demo only</span>
+    </div>
+  </div>
+
+  <div class="viewer-card">
+    <div class="viewer-card-bar">
+      <span class="label">Interactive 3D Room</span>
+      <span class="hint">Drag to rotate · pinch to zoom</span>
+    </div>
+
+    <model-viewer
+      id="viewer"
+      src="room.glb"
+      ios-src="room.glb"
+      camera-controls
+      auto-rotate
+      auto-rotate-delay="3000"
+      rotation-per-second="20deg"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      ar-scale="auto"
+      shadow-intensity="1.2"
+      exposure="1.05"
+      environment-image="neutral"
+      camera-orbit="0deg 75deg 105%"
+      field-of-view="32deg"
+      poster=""
+      alt="3D model of a raised room layout">
+      <div slot="progress-bar"></div>
+    </model-viewer>
+
+    <div class="ar-row">
+      <button class="btn-ar" id="ar-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zm0 7 10 5-10 5L2 14l10-5zm0 7v6"/></svg>
+        View in your room (AR)
+      </button>
+      <div class="note">
+        On iPhone or Android: tap above to see this room scaled into your actual space using your camera.
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <section>
+      <h2>About this property</h2>
+      <p>
+        A beautifully presented three-bedroom detached home in a quiet Wakefield cul-de-sac. The raised
+        living-dining room features full-height windows, original beams and a south-facing garden aspect.
+        Recently renovated kitchen and a converted loft office complete the upper floor.
+      </p>
+      <p>
+        Local schools rated Outstanding by Ofsted within 0.4 miles. Wakefield Westgate station 8 min by car.
+        M1 J39 in 12 minutes for fast access to Leeds, Sheffield and Manchester.
+      </p>
+
+      <h2 style="margin-top: 28px">Key features</h2>
+      <div class="features">
+        <div>South-facing garden</div>
+        <div>Loft office conversion</div>
+        <div>EV charger ready</div>
+        <div>Original 1920s beams</div>
+        <div>Fibre to the door</div>
+        <div>EPC B</div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <h3>Sample Agent</h3>
+      <div class="agency">Demo branch — Wakefield</div>
+      <a class="arrange" href="#">Arrange a viewing</a>
+      <a class="ghost" href="#">Request brochure</a>
+      <p style="margin-top:18px; font-size:12px; color: var(--fg-3); text-align:center;">
+        Tap the AR button on a phone to walk into this room.
+      </p>
+    </aside>
+  </div>
+
+  <div class="footer">
+    <div class="pill">SAMPLE · BUILT IN ~30 MIN</div>
+    <div>3D model generated by Meshy AI · interactive viewer powered by Google &lt;model-viewer&gt; · page by AI Injection</div>
+    <div style="margin-top: 6px; opacity: 0.6;">Same template lives at the Stage 4 (£229) tier — one per listing, custom branded for each agent.</div>
+  </div>
+
+  <script>
+    const mv = document.getElementById("viewer");
+    const arBtn = document.getElementById("ar-btn");
+    arBtn.addEventListener("click", () => {
+      try { mv.activateAR(); } catch (e) {
+        alert("AR not supported on this device or browser. Try Safari on iPhone or Chrome on Android.");
+      }
+    });
+  </script>
+</body>
+</html>
