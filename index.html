@@ -1035,48 +1035,55 @@
 <section class="stage" id="stage-1">
   <div class="stage-header">
     <div class="stage-num">Stage 1 · Essentials</div>
-    <h2 class="stage-name">Three reels. <span class="italic">One link.</span> Twenty-four hours.</h2>
+    <h2 class="stage-name">Five reels. <span class="italic">One link.</span> One per moment of the listing.</h2>
     <div class="stage-price">£25 <small>per property</small></div>
     <p class="stage-tagline">
       Drop a property URL — we scrape every photo, key feature, room, and the price.
-      You get back three vertical reels, each narrated by a UK voice, ready to post.
+      You get back <strong>five</strong> vertical reels, each tagged for a specific moment
+      in the listing's life. Tease before launch, announce on day one, promote the open
+      house, drop the price, celebrate the sale. <span style="color: var(--sand-2);">★ Was 3 generic reels — now 5 lifecycle-tagged.</span>
     </p>
   </div>
 
-  <div class="reel-trio">
+  <div class="reel-trio" style="grid-template-columns: repeat(5, 1fr); gap: 16px; max-width: 1200px;">
     <div class="reel-card">
-      <div class="video-wrap">
-        <video src="videos/stage1-hook.mp4" muted playsinline preload="metadata" loop></video>
-        <div class="play-overlay" data-play></div>
-      </div>
+      <div class="video-wrap"><video src="videos/lifecycle-reels/01-teaser.mp4" muted playsinline preload="metadata" loop></video><div class="play-overlay" data-play></div></div>
       <div class="reel-meta">
-        <div class="reel-label">Reel 1 of 3</div>
-        <div class="reel-title">The Hook</div>
-        <div class="reel-duration">28 seconds · kinetic typography opener</div>
+        <div class="reel-label">Day −2</div>
+        <div class="reel-title">Teaser</div>
+        <div class="reel-duration">14s · build curiosity</div>
       </div>
     </div>
-
     <div class="reel-card">
-      <div class="video-wrap">
-        <video src="videos/stage1-tour.mp4" muted playsinline preload="metadata" loop></video>
-        <div class="play-overlay" data-play></div>
-      </div>
+      <div class="video-wrap"><video src="videos/lifecycle-reels/02-just-listed.mp4" muted playsinline preload="metadata" loop></video><div class="play-overlay" data-play></div></div>
       <div class="reel-meta">
-        <div class="reel-label">Reel 2 of 3</div>
-        <div class="reel-title">The Tour</div>
-        <div class="reel-duration">43 seconds · room-by-room walkthrough</div>
+        <div class="reel-label">Day 0</div>
+        <div class="reel-title">Just Listed</div>
+        <div class="reel-duration">20s · full reveal</div>
       </div>
     </div>
-
     <div class="reel-card">
-      <div class="video-wrap">
-        <video src="videos/stage1-pick.mp4" muted playsinline preload="metadata" loop></video>
-        <div class="play-overlay" data-play></div>
-      </div>
+      <div class="video-wrap"><video src="videos/lifecycle-reels/03-open-house.mp4" muted playsinline preload="metadata" loop></video><div class="play-overlay" data-play></div></div>
       <div class="reel-meta">
-        <div class="reel-label">Reel 3 of 3</div>
-        <div class="reel-title">The Pick</div>
-        <div class="reel-duration">40 seconds · agent's-pick highlights</div>
+        <div class="reel-label">Day +5</div>
+        <div class="reel-title">Open House</div>
+        <div class="reel-duration">10s · event promo</div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="video-wrap"><video src="videos/lifecycle-reels/04-price-drop.mp4" muted playsinline preload="metadata" loop></video><div class="play-overlay" data-play></div></div>
+      <div class="reel-meta">
+        <div class="reel-label">Day +21</div>
+        <div class="reel-title">Price Drop</div>
+        <div class="reel-duration">12s · re-engage cold buyers</div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="video-wrap"><video src="videos/lifecycle-reels/05-just-sold.mp4" muted playsinline preload="metadata" loop></video><div class="play-overlay" data-play></div></div>
+      <div class="reel-meta">
+        <div class="reel-label">Day +sold</div>
+        <div class="reel-title">Just Sold</div>
+        <div class="reel-duration">11s · social proof</div>
       </div>
     </div>
   </div>
@@ -1085,13 +1092,13 @@
     <h3>What's included</h3>
     <ul>
       <li>Scrape from Rightmove / Zoopla / agent site</li>
-      <li>Three reels (Hook + Tour + Pick)</li>
-      <li>UK voice narration (3 different voices)</li>
+      <li><strong>5 lifecycle reels</strong> (Teaser + Just Listed + Open House + Price Drop + Just Sold) ★</li>
+      <li>UK voice narration (lifecycle-matched tone per reel)</li>
       <li>9:16 vertical for IG / TikTok / Reels</li>
       <li>Photos auto-cleaned and validated</li>
       <li>Ready in 24 hours</li>
       <li>Branded with your agency colours</li>
-      <li>MP4 files delivered direct</li>
+      <li>MP4 files delivered direct + a "posting calendar" PDF telling you when to use which reel</li>
     </ul>
     <div class="cta-row">
       <a href="#book" class="btn-primary" onclick="document.querySelector('select[name=tier]').value='Stage 1 (£25)'">Order Stage 1 →</a>
@@ -1138,6 +1145,18 @@
       <div class="label">Showpiece 4</div>
       <strong>3D Walk-Through</strong>
       <p>Auto-rotating 360° render of the apartment built as a real 3D model — every room visible by name, baked into The Tour reel.</p>
+    </div>
+    <div class="morph-callout" style="border: 2px solid var(--sand); position: relative;">
+      <div style="position: absolute; top: -10px; right: 12px; background: var(--sand); color: var(--nv); font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 0.18em; padding: 4px 9px; border-radius: 999px;">NEW ★</div>
+      <div class="label">Showpiece 5</div>
+      <strong>Twilight Conversion</strong>
+      <p>One noon photo of the front facade → AI clip evolving sky from midday to dusk to night with interior lights warming on. Replaces a £400 twilight photo session.</p>
+    </div>
+    <div class="morph-callout" style="border: 2px solid var(--sand); position: relative;">
+      <div style="position: absolute; top: -10px; right: 12px; background: var(--sand); color: var(--nv); font-family: 'Inter', sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 0.18em; padding: 4px 9px; border-radius: 999px;">NEW ★</div>
+      <div class="label">Showpiece 6</div>
+      <strong>Cinematic Room Push-Ins</strong>
+      <p>Smooth gimbal-style camera move INSIDE every key room — wide reveal pushing in to the focal feature. Looks like an interior film crew shot it. Built from each room's existing photo.</p>
     </div>
   </div>
 
@@ -1220,6 +1239,8 @@
       <li>2D → 3D animated floorplan morph</li>
       <li>Two empty → fully-staged room morphs</li>
       <li><strong>Auto-rotating 3D walk-through of the apartment</strong> baked into The Tour reel</li>
+      <li><strong>Twilight conversion of front facade</strong> — noon → night with interior lights ★</li>
+      <li><strong>Cinematic push-in shots inside every key room</strong> — film-crew look from one photo ★</li>
       <li>Liquid-glass card styling throughout</li>
       <li>Curved-underline highlights on key phrases</li>
       <li>Pulse-border animated CTAs</li>
@@ -1249,8 +1270,30 @@
     <p class="stage-tagline">
       Different beast from Stages 1 and 2. This is the long-form 16:9 hero asset
       agents embed on their own website, upload to YouTube for SEO, and use in
-      email campaigns. Two minutes, captioned, chaptered, music-scored.
+      email campaigns. Two minutes, captioned, chaptered, music-scored —
+      <strong>opening with a cinematic Earth-zoom or sky-drop reveal</strong>
+      that replaces a £400 drone hire. <span style="color: var(--sand-2);">★ Both opener styles now standard.</span>
     </p>
+  </div>
+
+  <!-- ★ NEW · Cinematic openers showcase -->
+  <div style="max-width: 1100px; margin: 0 auto 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+    <div style="background: var(--bg-2); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.10);">
+      <video src="videos/feature-earth-zoom.mp4" muted playsinline preload="metadata" loop controls style="width: 100%; aspect-ratio: 16/9; display: block; background: #000;"></video>
+      <div style="padding: 16px 20px;">
+        <div style="font-size: 11px; color: var(--sand-2); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px;">★ NEW · Opener style A</div>
+        <div style="font-size: 18px; font-weight: 600;">Cinematic Earth-zoom (13s)</div>
+        <div style="font-size: 13px; color: var(--fg-3); line-height: 1.5;">Outer space → coast → property. Use for landmark or unusual locations.</div>
+      </div>
+    </div>
+    <div style="background: var(--bg-2); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.10);">
+      <video src="videos/feature-sky-drop.mp4" muted playsinline preload="metadata" loop controls style="width: 100%; aspect-ratio: 16/9; display: block; background: #000;"></video>
+      <div style="padding: 16px 20px;">
+        <div style="font-size: 11px; color: var(--sand-2); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px;">★ NEW · Opener style B</div>
+        <div style="font-size: 18px; font-weight: 600;">Sky-drop helicopter reveal (6s)</div>
+        <div style="font-size: 13px; color: var(--fg-3); line-height: 1.5;">Rooftop bird's-eye → ground level. Use for coastal or character properties.</div>
+      </div>
+    </div>
   </div>
 
   <div class="hero-video-wrap" id="stage3-video-wrap">
@@ -1294,6 +1337,8 @@
     <h3>What's included</h3>
     <ul>
       <li>One 2-minute landscape (16:9 / 1080p) HD video</li>
+      <li><strong>Cinematic Earth-zoom OR sky-drop opener</strong> (you pick which fits the property) ★</li>
+      <li>Twilight conversion of the front facade as a "money shot" beat ★</li>
       <li>Burned-in captions (autoplay sound-off ready)</li>
       <li>SRT subtitle file (YouTube reads it for SEO)</li>
       <li>Chapter list for YouTube description</li>
